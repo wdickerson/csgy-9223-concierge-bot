@@ -1,0 +1,12 @@
+japanese
+italian
+greek
+indian
+chinese
+seafood
+sushi
+mexican
+thai
+vietnamese
+french
+vegan
