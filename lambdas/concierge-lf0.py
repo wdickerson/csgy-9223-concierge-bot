@@ -1,6 +1,4 @@
-import json
 import boto3
-import uuid
 import datetime
 
 
@@ -22,17 +20,16 @@ def lambda_handler(event, context):
         text=user_message,
     )
     
-    message = lex_response['messages'][0]['content']
-    
-    return {
-      "messages": [
-        {
+    my_messages = [
+      {
           "type": "unstructured",
           "unstructured": {
             "id": "some-id",
-            "text": message,
+            "text": message['content'],
             "timestamp": datetime.datetime.now().isoformat(),
           }
         }
-      ]
-    }
+      for message in lex_response.get('messages', [{ "content": "" }])
+    ]
+    
+    return { "messages": my_messages }

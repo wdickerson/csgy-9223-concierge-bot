@@ -1,7 +1,6 @@
 japanese
 italian
 greek
-indian
 chinese
 seafood
 sushi
